@@ -1,0 +1,73 @@
+<template>
+    <div class="py-4 container-fluid">
+        <div class="row mb-4">
+            <div class="col-12 mb-4 mb-sm-0">
+                <div class="card card-adjust">
+                    <div class="card-body p-3 d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-subheading">
+                                {{ contract.name }}
+                            </div>
+                            <div class="text-subheading">
+                                {{ contract.code }}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-heading text-success">
+                                {{ contract.is_active }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-4 mb-sm-0">
+                <div class="card card-adjust">
+                    <div class="card-body p-3">
+                        <div class="col-6" v-for="item in contract.company_attachement" :key="item._id">
+                            <img :src="baseURL + item.path + '?token=' + token" :alt="item.name" :name="item.name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data(){
+        return {
+            contract:{},
+            baseURL:process.env.VUE_APP_DOCUMENT_URL,
+            token: this.$auth.getToken(),
+        }
+    },
+    async created() {
+        let defaultContract = {
+            _id:'',
+            name:'',
+            code:'',
+            is_active:'',
+            company_attachement:[]
+        }
+
+        var dataContract = await this.$apiController('get', '/human_resource/detail_contract')
+        .catch(err=>console.log(err))
+        
+        this.contract = dataContract !== undefined && dataContract.is_ok == true ? dataContract.data : defaultContract;
+        console.log('contract', this.contract)
+
+        if(this.contract.is_active == true) {
+            this.contract.is_active = 'ACTIVE'
+        } else {
+            this.contract.is_active = 'EXPIRED'
+        }
+    },
+}
+</script>
+
+<style>
+
+</style>
