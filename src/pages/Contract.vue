@@ -40,7 +40,7 @@
                                 </a>
                                 <div class="mt-3">
                                     <div class="text-description">
-                                        Name Document: <strong>{{ item._id }}</strong>
+                                        Name Document: <strong>{{ item.name }}</strong>
                                     </div>
                                     <div class="text-description">
                                         Type Document: <strong>{{ item.type }}</strong>
