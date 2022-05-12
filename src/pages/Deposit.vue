@@ -88,8 +88,8 @@ export default {
         loading: false,
         fields: [
           { key: 'note', label:"Nama Deposit", sortable: true},
-          { key: 'amount', label:"Jumlah", sortable: true},
-          { key: 'transaction_date', label:"Tanggal Deposit", sortable: true},
+          { key: 'amount', label:"Jumlah", sortable: true, number:true},
+          { key: 'transaction_date', label:"Tanggal Deposit", sortable: true, date:true},
         ],
         selectData:{
           page:1,

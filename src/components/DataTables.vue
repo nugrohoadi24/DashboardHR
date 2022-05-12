@@ -49,7 +49,7 @@
                         :striped=true
                         :bordered=true
                         :fields="fields"
-                        class="table mb-3 text-capitalize"
+                        class="table mb-3 text-capitalize text-description"
                         responsive="sm">
                     </b-table>
                 
