@@ -6,13 +6,16 @@
                     <div class="card-body p-3 d-flex justify-content-between align-items-center">
                         <div>
                             <div class="text-subheading">
-                                {{ contract.name }}
+                                Name Company: {{ contract.name }}
                             </div>
                             <div class="text-subheading">
-                                {{ contract.code }}
+                                Code Compant: {{ contract.code }}
                             </div>
                         </div>
                         <div>
+                            <div class="text-subheading">
+                                Status
+                            </div>
                             <div class="text-heading text-success">
                                 {{ contract.is_active }}
                             </div>
@@ -24,9 +27,24 @@
         <div class="row">
             <div class="col-12 mb-4 mb-sm-0">
                 <div class="card card-adjust">
+                    <div class="card-header pb-2">
+                        <div class="text-subheading">
+                            Document
+                        </div>
+                    </div>
                     <div class="card-body p-3">
-                        <div class="col-6" v-for="item in contract.company_attachement" :key="item._id">
-                            <img :src="baseURL + item.path + '?token=' + token" :alt="item.name" :name="item.name">
+                        <div class="row">
+                            <div class="col-6 doc-thumbnail mb-3" v-for="item in contract.company_attachement" :key="item._id">
+                                <img :src="baseURL + item.path + '?token=' + token" :alt="item.name" :name="item.name">
+                                <div class="mt-3">
+                                    <div class="text-description">
+                                        Name Document: {{ item.name }}
+                                    </div>
+                                    <div class="text-description">
+                                        Type Document: {{ item.type }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,7 +75,6 @@ export default {
         .catch(err=>console.log(err))
         
         this.contract = dataContract !== undefined && dataContract.is_ok == true ? dataContract.data : defaultContract;
-        console.log('contract', this.contract)
 
         if(this.contract.is_active == true) {
             this.contract.is_active = 'ACTIVE'

@@ -208,14 +208,8 @@
 </template>
 
 <script>
-import Doughnut from "@/components/chart/DoughnutChart"
-import PieChart from "@/components/chart/PieChart"
 
 export default {
-    components: {
-        Doughnut,
-        PieChart
-    },
     data(){
         return {
             loading: true,

@@ -6,6 +6,9 @@ import router from './router'
 import moment from 'moment'
 import { BootstrapVue} from 'bootstrap-vue'
 
+import DataTables from "@/components/DataTables"
+import Doughnut from "@/components/chart/DoughnutChart"
+import PieChart from "@/components/chart/PieChart"
 import Loading from '@/components/Loading'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -129,6 +132,9 @@ Vue.filter('formatDateTime', function(value) {
   }
 })
 
+Vue.component('DataTables', DataTables)
+Vue.component('Doughnut', Doughnut)
+Vue.component('PieChart', PieChart)
 Vue.component('Loading', Loading)
 
 new Vue({

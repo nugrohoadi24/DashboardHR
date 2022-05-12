@@ -27,13 +27,7 @@
 </template>
 
 <script>
-import DataTables from "@/components/DataTables"
-import badge from "@/components/badge/Badge"
 export default {
-    components: {
-        DataTables,
-        badge
-    },
     data () {
       return {
         title:"Data Participant",

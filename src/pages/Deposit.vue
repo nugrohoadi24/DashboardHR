@@ -79,15 +79,9 @@
 </template>
 
 <script>
-import DataTables from "@/components/DataTables"
-import badge from "@/components/badge/Badge"
 import moment from 'moment';
 
 export default {
-    components: {
-        DataTables,
-        badge
-    },
     data () {
       return {
         title:"Data Deposit",
