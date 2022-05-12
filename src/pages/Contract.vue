@@ -34,14 +34,16 @@
                     </div>
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-6 doc-thumbnail mb-3" v-for="item in contract.company_attachement" :key="item._id">
-                                <img :src="baseURL + item.path + '?token=' + token" :alt="item.name" :name="item.name">
+                            <div class="col-6 doc-thumbnail mb-5 text-center" v-for="item in contract.company_attachement" :key="item._id">
+                                <a :href="baseURL + item.path + '?token=' + token" target="_blank">
+                                    <img src="@/assets/img/pdf.png" :alt="item.name" :name="item.name">
+                                </a>
                                 <div class="mt-3">
                                     <div class="text-description">
-                                        Name Document: {{ item.name }}
+                                        Name Document: <strong>{{ item._id }}</strong>
                                     </div>
                                     <div class="text-description">
-                                        Type Document: {{ item.type }}
+                                        Type Document: <strong>{{ item.type }}</strong>
                                     </div>
                                 </div>
                             </div>
