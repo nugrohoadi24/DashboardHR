@@ -57,7 +57,6 @@ export default {
         .catch(err=>console.log(err))
         
         this.coverage = dataCoverage !== undefined && dataCoverage.is_ok == true ? dataCoverage.data.company_coverage_data : defaultCoverage;
-        console.log('cov', this.coverage)
     },
     methods: {
         selectCoverage(){
