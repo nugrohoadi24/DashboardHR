@@ -32,7 +32,7 @@
                             Document
                         </div>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3" v-if="contract.company_attachement.length > 0">
                         <div class="row">
                             <div class="col-6 doc-thumbnail mb-5 text-center" v-for="item in contract.company_attachement" :key="item._id">
                                 <a :href="baseURL + item.path + '?token=' + token" target="_blank">
@@ -45,6 +45,15 @@
                                     <div class="text-description">
                                         Type Document: <strong>{{ item.type }}</strong>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3" v-else>
+                        <div class="row">
+                            <div class="col-12 mb-5">
+                                <div class="text-subheading text-center">
+                                    Tidak ada dokumen
                                 </div>
                             </div>
                         </div>

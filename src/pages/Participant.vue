@@ -30,7 +30,7 @@
 export default {
     data () {
       return {
-        title:"Data Participant",
+        title:"ACTIVE CERTIFICATES",
         loading: false,
         fields: [
           { key: 'user.nama', label:"NAMA USER", sortable: true},
@@ -42,7 +42,7 @@ export default {
           { key: 'policy_end_date', label:"END DATE", sortable: true, date:true},
           { key: 'insurance_product.name', label:"PRODUCT", sortable: true},
           { key: 'plan_name', label:"PLAN", sortable: true},
-          { key: 'status_polis', label:"STATUS", sortable: false},
+          { key: 'status_polis', label:"STATUS", sortable: true},
         ],
         selectData:{
           page:1,
@@ -76,7 +76,7 @@ export default {
         let localCoverage = JSON.parse(localStorage.getItem("coverage"));
 
         if (localCoverage !== null && localCoverage !== undefined ) {
-            var coveragePolicy = localCoverage.policy;
+            var coverageId = localCoverage.id;
         } else {
             this.$router.push('/select-coverage');
         }
@@ -87,11 +87,12 @@ export default {
           .catch(() => {});
 
         this.$emit('showLoading', true);
-        var response = await this.$apiController('get', `/human_resource/list_participant/${coveragePolicy}?page=${page}&perpage=${limit}&searchquery=${search}`);
+        var response = await this.$apiController('get', `/human_resource/list_participant/${coverageId}?page=${page}&perpage=${limit}&searchquery=${search}`);
 
         this.$emit('showLoading', false);
         if(response.is_ok){
           this.tableData = response.data
+          console.log('aa', this.tableData)
 
           var getProductType = this.tableData.docs
           getProductType.forEach(item => {

@@ -119,7 +119,7 @@ export default {
         let localCoverage = JSON.parse(localStorage.getItem("coverage"));
 
         if (localCoverage !== null && localCoverage !== undefined ) {
-            var coveragePolicy = localCoverage.policy;
+            var coverageId = localCoverage.id;
         } else {
             this.$router.push('/select-coverage');
         }
@@ -129,7 +129,7 @@ export default {
           .catch(() => {});
 
         this.$emit('showLoading', true);
-        var response = await this.$apiController('get', `/human_resource/deposit/${coveragePolicy}`);
+        var response = await this.$apiController('get', `/human_resource/deposit/${coverageId}`);
 
         this.$emit('showLoading', false);
         if(response.is_ok){

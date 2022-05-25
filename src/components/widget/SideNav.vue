@@ -35,7 +35,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <span class="nav-link-text ml-2">
-                            Participant
+                            Active Certificates
                         </span>
                     </router-link>
                 </li>
