@@ -12,7 +12,7 @@
                                     {{ coverage.coverage_participant_data.participant_total }}
                                     </div>
                                     <div class="text-sm text-description">
-                                    Participant
+                                    Active Certificates
                                     </div>
                                 </div>
                             </div>
